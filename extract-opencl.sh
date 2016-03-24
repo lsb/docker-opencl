@@ -35,7 +35,7 @@ INSTALL_DIR=${WORKDIR}/install
 mkdir -p ${WORKDIR}
 cd ${WORKDIR}
 
-RUN_FILE="cuda_7.5.18_linux.run"
+RUN_FILE=`basename $URL`
 
 if [ ! -e ${RUN_FILE} ]
 then
@@ -47,7 +47,7 @@ fi
 chmod 700 ${RUN_FILE}
 
 echo "== Extract ${RUN_FILE}"
-./cuda_7.5.18_linux.run --silent  --extract=${WORKDIR}
+./${RUN_FILE} --silent  --extract=${WORKDIR}
 echo "==========="
 
 CUDA_RUN=`find . -name 'cuda-linux64*.run'`
